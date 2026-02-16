@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Shiva ❤️ Dhivya - Will You Be My Valentine?</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* style.css - romantic, fun, and full of impression */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(145deg, #fff0f3 0%, #ffe2e8 40%, #ffd5df 100%);
+      color: #4a2b2f;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      scroll-behavior: smooth;
+    }
+
+    /* floating hearts canvas */
+    #hearts-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 5;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 2rem;
+    }
+
+    .glow-text {
+      text-shadow: 0 0 12px rgba(255, 80, 130, 0.7), 0 0 30px rgba(255, 40, 100, 0.5);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 4.2rem;
+      color: #c12b4b;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 3.2rem; }
+    }
+
+    /* sections */
+    section {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 50px 20px 50px 20px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 20px 40px rgba(190, 60, 90, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-section { animation-delay: 0.1s; }
+    .quote-section { animation-delay: 0.2s; }
+    .message-section { animation-delay: 0.3s; }
+    .invitation-section { animation-delay: 0.4s; }
+    .buttons-section { animation-delay: 0.5s; }
+    .timer-section { animation-delay: 0.6s; }
+    .gallery-section { animation-delay: 0.7s; }
+    footer { animation-delay: 0.8s; opacity: 0; animation: fadeInUp 1s forwards; }
+
+    /* hero */
+    .hero-section {
+      text-align: center;
+      background: rgba(255, 240, 245, 0.6);
+    }
+
+    .hero-section .subhead {
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #a52d4f;
+      margin-top: 0.5rem;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    /* music button */
+    .music-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(5px);
+      border: 2px solid #ffb6c1;
+      color: #c12b4b;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(200, 50, 100, 0.3);
+      transition: all 0.3s;
+    }
+    .music-control:hover {
+      background: #ffb6c1;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    /* quote */
+    .quote-text {
+      font-size: 2rem;
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      color: #a13555;
+      background: rgba(255, 220, 235, 0.7);
+      padding: 2rem 1.5rem;
+      border-radius: 80px 20px 80px 20px;
+      border: 3px solid white;
+      box-shadow: 0 0 40px rgba(255, 120, 160, 0.5);
+    }
+    .quote-author {
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      color: #8e3b54;
+    }
+
+    /* love message */
+    .message-text {
+      font-size: 1.8rem;
+      font-weight: 300;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      font-style: italic;
+      color: #631f32;
+      background: rgba(255, 220, 235, 0.6);
+      padding: 2.2rem;
+      border-radius: 70px 20px 70px 20px;
+      border: 2px dashed #ff99b4;
+    }
+    @media (max-width: 500px) {
+      .message-text { font-size: 1.5rem; }
+    }
+
+    /* invitation */
+    .invitation-highlight {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #b62b52;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 1rem 2.5rem;
+      border-radius: 80px;
+      display: inline-block;
+      margin: 1rem 0;
+      font-family: 'Great Vibes', cursive;
+      line-height: 1.3;
+      box-shadow: 0 0 40px rgba(255, 60, 120, 0.7);
+    }
+    .invitation-sub {
+      font-size: 2rem;
+      color: #993b5b;
+      font-weight: 300;
+    }
+    @media (max-width: 550px) {
+      .invitation-highlight { font-size: 2.5rem; }
+      .invitation-sub { font-size: 1.5rem; }
+    }
+
+    /* buttons */
+    .button-pair {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      margin: 2rem 0 1rem;
+    }
+    .btn {
+      border: none;
+      padding: 1.2rem 2.5rem;
+      font-size: 2.2rem;
+      font-family: 'Great Vibes', cursive;
+      border-radius: 60px;
+      box-shadow: 0 12px 30px rgba(210, 70, 110, 0.4);
+      cursor: pointer;
+      transition: all 0.25s;
+      border: 3px solid transparent;
+      font-weight: 600;
+      line-height: 1;
+      min-width: 240px;
+    }
+    .btn-yes {
+      background: #ff4d6d;
+      color: white;
+      border-color: #ffb3c6;
+    }
+    .btn-yes:hover {
+      background: #ff1f4a;
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 30px 40px rgba(255, 50, 100, 0.6);
+    }
+    .btn-no {
+      background: #ffe2e9;
+      color: #b13e5c;
+      border-color: #ff99aa;
+    }
+    .btn-no:hover {
+      background: #ffc9d7;
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 20px 30px #ffa5b9;
+    }
+
+    /* popups */
+    .popup {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -70%);
+      background: white;
+      padding: 2.8rem 4rem;
+      border-radius: 100px 20px 100px 20px;
+      box-shadow: 0 40px 70px #c12b4b;
+      z-index: 200;
+      font-size: 3rem;
+      font-family: 'Great Vibes', cursive;
+      color: #b12b4e;
+      text-align: center;
+      transition: 0.3s;
+      border: 8px solid #ffccd9;
+      opacity: 0; visibility: hidden;
+      pointer-events: none;
+      line-height: 1.3;
+    }
+    .popup.show {
+      opacity: 1; visibility: visible;
+      transform: translate(-50%, -50%);
+      pointer-events: all;
+    }
+    .popup-small {
+      font-size: 2.8rem;
+      background: #ffeef2;
+      color: #b12b4e;
+      padding: 2.5rem 3rem;
+    }
+    .overlay {
+      position: fixed; top:0;left:0;width:100%;height:100%;
+      background: rgba(0,0,0,0.2); backdrop-filter: blur(4px);
+      z-index: 150;
+      opacity: 0; visibility: hidden;
+      transition: 0.2s;
+    }
+    .overlay.show { opacity: 1; visibility: visible; }
+
+    /* countdown */
+    .timer-container {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #b12b4e;
+      margin-top: 1.5rem;
+    }
+    .timer-box {
+      background: rgba(255,255,240,0.8);
+      border-radius: 40px;
+      padding: 1rem 2rem;
+      min-width: 120px;
+      backdrop-filter: blur(2px);
+      border: 3px solid #ffb0c3;
+      box-shadow: 0 0 30px #ff98b0;
+    }
+    .timer-box span {
+      font-size: 1.1rem;
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #a03a55;
+    }
+
+    /* gallery - romantic AI style SVGs (safe placeholders) */
+    .gallery-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2.5rem 0 0;
+    }
+    .gallery-item {
+      width: 280px;
+      height: 320px;
+      border-radius: 50px 20px 50px 20px;
+      box-shadow: 0 25px 40px #d66b89;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-shadow: 2px 2px 8px #b02b4e;
+      border: 6px solid white;
+      background-size: cover;
+      background-position: center;
+      transition: 0.4s;
+      padding-bottom: 20px;
+      font-family: 'Great Vibes', cursive;
+      background-color: #ffc1cc; /* fallback */
+      background-blend-mode: overlay;
+    }
+    .gallery-item i {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #ffebf0;
+    }
+    /* romantic SVG data URIs (AI generated feel) - reliable and cute */
+    .gallery-item:nth-child(1) {
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><circle cx="200" cy="150" r="100" fill="%23ff99aa"/><circle cx="130" cy="220" r="70" fill="%23ffb3c6"/><circle cx="270" cy="220" r="70" fill="%23ffb3c6"/><path d="M120 280 Q200 350 280 280" stroke="%23b32d4a" stroke-width="10" fill="none"/><text x="200" y="330" font-size="40" text-anchor="middle" fill="white" font-family="Great Vibes">love</text></svg>');
+    }
+    .gallery-item:nth-child(2) {
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23ffd1dc"/><path d="M100,200 Q200,100 300,200 Q200,300 100,200" fill="%23ff6f91"/><circle cx="150" cy="150" r="25" fill="white"/><circle cx="250" cy="150" r="25" fill="white"/><text x="200" y="280" font-size="45" text-anchor="middle" fill="%23b32d4a" font-family="Great Vibes">❤️</text></svg>');
+    }
+    .gallery-item:nth-child(3) {
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><path d="M200,80 L260,200 L200,300 L140,200 L200,80" fill="%23ff4d6d" opacity="0.9"/><circle cx="200" cy="130" r="35" fill="%23ffe6f0"/><text x="200" y="250" font-size="40" text-anchor="middle" fill="white" font-family="Great Vibes">Us</text></svg>');
+    }
+
+    /* footer */
+    footer {
+      text-align: center;
+      font-size: 1.9rem;
+      color: #b14867;
+      padding: 1.5rem;
+      background: rgba(255, 220, 235, 0.6);
+      border-radius: 100px 20px;
+      font-family: 'Great Vibes', cursive;
+      border: 3px solid white;
+    }
+
+    .sarcastic-note {
+      font-size: 1.6rem;
+      color: #a53860;
+      margin-top: 1rem;
+      font-style: italic;
+      background: rgba(255,200,215,0.5);
+      padding: 0.8rem;
+      border-radius: 50px;
+    }
+    
+    /* New hero buttons - ONLY added this, nothing else changed */
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin: 2rem 0 0.5rem;
+    }
+    .hero-btn {
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 2.2rem;
+      font-family: 'Great Vibes', cursive;
+      border-radius: 60px;
+      box-shadow: 0 12px 30px rgba(210, 70, 110, 0.4);
+      cursor: pointer;
+      transition: all 0.25s;
+      border: 3px solid transparent;
+      font-weight: 600;
+      line-height: 1;
+      min-width: 180px;
+    }
+    .hero-btn-yes {
+      background: #ff4d6d;
+      color: white;
+      border-color: #ffb3c6;
+    }
+    .hero-btn-yes:hover {
+      background: #ff1f4a;
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 30px 40px rgba(255, 50, 100, 0.6);
+    }
+    .hero-btn-no {
+      background: #ffe2e9;
+      color: #b13e5c;
+      border-color: #ff99aa;
+    }
+    .hero-btn-no:hover {
+      background: #ffc9d7;
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 20px 30px #ffa5b9;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="hearts-canvas"></canvas>
+
+  <div class="music-control" id="musicToggle">
+    <i class="fas fa-volume-up" id="musicIcon"></i>
+  </div>
+
+  <!-- popups (updated messages) -->
+  <div class="overlay" id="overlay"></div>
+  <div class="popup" id="popupYes">You are my everything ❤️<br> <span style="font-size:2rem;">My heart beats only for you, my love 💕</span></div>
+  <div class="popup popup-small" id="popupNo">🙅‍♀️ Nice try! But you know you want to say YES! 😘<br> <span style="font-size:2rem;">I'll wait for you, my love 💕</span></div>
+
+  <div class="content">
+    <!-- hero section with will you be my valentine - NOW WITH BUTTONS HERE -->
+    <section class="hero-section">
+      <h1 class="glow-text">Shiva ❤️ Dhivya</h1>
+      <div class="subhead">Will you be my Valentine? 💝</div>
+      <div class="sarcastic-note">(No means "yes" in my dictionary 😉)</div>
+      
+      <!-- NEW BUTTONS added exactly here, right after sarcastic note -->
+      <div class="hero-buttons">
+        <button class="hero-btn hero-btn-yes" id="heroBtnYes">Yes ❤️</button>
+        <button class="hero-btn hero-btn-no" id="heroBtnNo">No 🤭</button>
+      </div>
+      <div style="text-align:center; color:#a53860; font-size:1.6rem; margin-top:0.5rem;">💬 Click Yes to see my love for you</div>
+    </section>
+
+    <!-- heart touching quote -->
+    <section class="quote-section">
+      <div class="quote-text">
+        “I saw that you were perfect, and so I loved you. Then I saw that you were not perfect and I loved you even more.”
+        <div class="quote-author"></div>
+      </div>
+    </section>
+
+    <!-- love message (original old design style) -->
+    <section class="message-section">
+      <div class="message-text">
+        <i class="fas fa-heart" style="color:#ff4d6d;"></i> You are the most beautiful part of my life. 
+        Every smile of yours makes my day brighter. I don't just want to text you... 
+        I want to see you, hear your laugh, and create memories together.
+      </div>
+    </section>
+
+    <!-- special invitation (old design kept) -->
+    <section class="invitation-section">
+      <div style="text-align: center;">
+        <div class="invitation-highlight glow-text">Will you meet me on 24th or 25th?</div>
+        <div class="invitation-sub">I promise it will be a beautiful day filled with laughter, happiness, and just us.</div>
+      </div>
+    </section>
+
+    <!-- Buttons: Yes / No for Valentine question - KEPT EXACTLY AS IS -->
+    <section class="buttons-section">
+      <div class="button-pair">
+        <button class="btn btn-yes" id="btnYes">Yes, I’ll come ❤️</button>
+        <button class="btn btn-no" id="btnNo">Let me think 🤭</button>
+      </div>
+      <div style="text-align:center; color:#a53860; font-size:1.8rem; margin-top:0.5rem;">💬 If you click "think", I'll convince you 😘</div>
+    </section>
+
+    <!-- countdown to 24th -->
+    <section class="timer-section">
+      <h2 style="text-align: center; font-size: 3rem; margin-bottom: 0.5rem;">counting down to our day ✨</h2>
+      <div class="timer-container" id="countdown">
+        <div class="timer-box"><span>days</span> <span id="days">00</span></div>
+        <div class="timer-box"><span>hours</span> <span id="hours">00</span></div>
+        <div class="timer-box"><span>minutes</span> <span id="minutes">00</span></div>
+        <div class="timer-box"><span>seconds</span> <span id="seconds">00</span></div>
+      </div>
+    </section>
+
+    <!-- gallery with AI romantic SVGs (fixed) -->
+    <section class="gallery-section">
+      <h2 style="text-align: center; font-size: 3.2rem;">dream of us ✨</h2>
+      <div class="gallery-row">
+        <div class="gallery-item"><i class="fas fa-heart"></i> sunset love</div>
+        <div class="gallery-item"><i class="fas fa-heart"></i> hand in hand</div>
+        <div class="gallery-item"><i class="fas fa-heart"></i> our hearts</div>
+      </div>
+      <p style="text-align:center; font-size:1.6rem; margin-top:1.5rem;">(AI-generated dreams, soon reality 💖)</p>
+    </section>
+
+    <!-- footer -->
+    <footer>Made with love by Shiva 💖</footer>
+  </div>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    (function() {
+      // Floating hearts (same as before, keeps romantic)
+      const canvas = document.getElementById('hearts-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let hearts = [];
+
+      function initCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+        hearts = [];
+        for (let i = 0; i < 20; i++) {
+          hearts.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: 15 + Math.random() * 30,
+            speedY: 0.2 + Math.random() * 0.9,
+            speedX: (Math.random() - 0.5) * 0.2,
+            opacity: 0.3 + Math.random() * 0.5,
+            pulse: 0.5 + Math.random() * 0.5,
+          });
+        }
+      }
+
+      function drawHearts() {
+        ctx.clearRect(0, 0, width, height);
+        hearts.forEach(h => {
+          h.y -= h.speedY;
+          h.x += h.speedX;
+          if (h.y < -50) h.y = height + 50;
+          if (h.x > width + 40) h.x = -40;
+          if (h.x < -40) h.x = width + 40;
+
+          let scale = 1 + 0.1 * Math.sin(Date.now() * 0.002 * h.pulse);
+          let size = h.size * scale;
+
+          ctx.save();
+          ctx.translate(h.x, h.y);
+          ctx.globalAlpha = h.opacity * (0.7 + 0.3 * Math.sin(Date.now() * 0.003));
+          ctx.fillStyle = '#ff8da1';
+          ctx.shadowColor = '#ff4d6d';
+          ctx.shadowBlur = 18;
+          ctx.beginPath();
+          ctx.moveTo(0, size * 0.25);
+          ctx.bezierCurveTo(-size*0.5, -size*0.4, -size*0.8, size*0.3, 0, size*0.9);
+          ctx.bezierCurveTo(size*0.8, size*0.3, size*0.5, -size*0.4, 0, size*0.25);
+          ctx.fill();
+          ctx.restore();
+        });
+        requestAnimationFrame(drawHearts);
+      }
+
+      window.addEventListener('resize', () => { initCanvas(); });
+      initCanvas();
+      drawHearts();
+
+      // Music control
+      const audio = document.getElementById('bgMusic');
+      const toggleBtn = document.getElementById('musicToggle');
+      const icon = document.getElementById('musicIcon');
+      let musicPlaying = false;
+      audio.volume = 0.4;
+      audio.play().then(() => {
+        musicPlaying = true;
+        icon.className = 'fas fa-volume-up';
+      }).catch(() => {
+        musicPlaying = false;
+        icon.className = 'fas fa-volume-mute';
+      });
+
+      toggleBtn.addEventListener('click', () => {
+        if (musicPlaying) {
+          audio.pause();
+          icon.className = 'fas fa-volume-mute';
+        } else {
+          audio.play().catch(e => { console.log("play blocked"); });
+          icon.className = 'fas fa-volume-up';
+        }
+        musicPlaying = !musicPlaying;
+      });
+
+      // Buttons for Valentine question - BOTH sets now work
+      const btnYes = document.getElementById('btnYes');
+      const btnNo = document.getElementById('btnNo');
+      const heroBtnYes = document.getElementById('heroBtnYes');
+      const heroBtnNo = document.getElementById('heroBtnNo');
+      const popupYes = document.getElementById('popupYes');
+      const popupNo = document.getElementById('popupNo');
+      const overlay = document.getElementById('overlay');
+
+      function showPopup(popup) {
+        overlay.classList.add('show');
+        popup.classList.add('show');
+        setTimeout(() => {
+          overlay.classList.remove('show');
+          popup.classList.remove('show');
+        }, 4000);
+      }
+
+      function launchConfetti() {
+        if (window.confetti) {
+          const duration = 2 * 1000;
+          const end = Date.now() + duration;
+          (function frame() {
+            confetti({ particleCount: 8, startVelocity: 28, spread: 70, origin: { x: 0.3, y: 0.6 } });
+            confetti({ particleCount: 8, startVelocity: 28, spread: 70, origin: { x: 0.7, y: 0.6 } });
+            if (Date.now() < end) requestAnimationFrame(frame);
+          })();
+        } else {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1';
+          script.onload = launchConfetti;
+          document.head.appendChild(script);
+        }
+      }
+
+      // Original buttons
+      btnYes.addEventListener('click', () => {
+        showPopup(popupYes);
+        launchConfetti();
+      });
+
+      btnNo.addEventListener('click', () => {
+        showPopup(popupNo);
+      });
+
+      // New hero buttons
+      heroBtnYes.addEventListener('click', () => {
+        showPopup(popupYes);
+        launchConfetti();
+      });
+
+      heroBtnNo.addEventListener('click', () => {
+        showPopup(popupNo);
+      });
+
+      overlay.addEventListener('click', () => {
+        overlay.classList.remove('show');
+        popupYes.classList.remove('show');
+        popupNo.classList.remove('show');
+      });
+
+      // Countdown to 24th
+      function updateCountdown() {
+        const now = new Date();
+        let year = now.getFullYear();
+        let month = now.getMonth();
+        let targetDate = new Date(year, month, 24, 0, 0, 0);
+        if (now > targetDate) {
+          targetDate = new Date(year, month + 1, 24, 0, 0, 0);
+        }
+        const diff = targetDate - now;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (86400000)) / (3600000));
+        const minutes = Math.floor((diff % 3600000) / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
+
+        document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+        document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+        document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+        document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // Preload confetti
+      if (!window.confetti) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1';
+        document.head.appendChild(script);
+      }
+    })();
+  </script>
+</body>
+</html>
